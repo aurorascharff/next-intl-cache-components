@@ -36,14 +36,14 @@
   "PageLayout": {
     "links": {
       "docs": {
-        "description": "Learn more about next-intl in the official docs.",
-        "href": "https://next-intl.dev",
-        "title": "Docs"
-      },
-      "source": {
         "description": "Browse the cacheComponents implementation on GitHub.",
         "href": "https://github.com/aurorascharff/next-intl-cache-components/blob/main/src/app/%5Blocale%5D/page.tsx",
-        "title": "Implementation"
+        "title": "GitHub"
+      },
+      "source": {
+        "description": "Learn about next-intl static rendering setup.",
+        "href": "https://next-intl.dev/docs/routing/setup#static-rendering",
+        "title": "Source"
       }
     }
   },
