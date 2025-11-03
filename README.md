@@ -6,7 +6,7 @@ A demo showing how to use Next.js 16's `cacheComponents` feature with `next-intl
 
 The demo includes two components:
 
-- **Dynamic Component**: Uses `getTranslations()` without explicit locale, relies on `setRequestLocale()` context which uses `headers()`. This component is not cachable and runs on every request.
+- **Dynamic Component**: Uses `getTranslations('IndexPage')` with only namespace parameter, which internally reads from `headers()`. This component is not cachable and runs on every request.
 - **Cached Component**: Receives locale from params as prop and uses `getTranslations({locale})` with `'use cache'` directive. This component is cachable because the locale is passed explicitly, not read from `headers()`.
 
 ## Learn More
