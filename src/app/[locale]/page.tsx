@@ -18,7 +18,7 @@ export default async function IndexPage({params}: PageProps<'/[locale]'>) {
 
   return (
     <PageLayout title={t('title')}>
-      <Suspense fallback={<p>Loading dynamic component...</p>}>
+      <Suspense fallback={<ComponentSkeleton />}>
         <DynamicComponent />
       </Suspense>
       <CachedComponent locale={locale} />
@@ -26,7 +26,6 @@ export default async function IndexPage({params}: PageProps<'/[locale]'>) {
     </PageLayout>
   );
 }
-
 async function DynamicComponent() {
   await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate some async operation
   const t = await getTranslations('IndexPage');
@@ -56,6 +55,16 @@ async function CachedComponent({locale}: {locale: Locale}) {
         {t('cachedComponent.title')}
       </h2>
       <p>{t('cachedComponent.content')}</p>
+    </div>
+  );
+}
+
+function ComponentSkeleton() {
+  return (
+    <div className="mb-8 rounded-lg bg-gray-800 p-6 animate-pulse">
+      <div className="mb-4 h-6 w-1/3 rounded bg-gray-700"></div>
+      <div className="mb-2 h-4 w-full rounded bg-gray-700"></div>
+      <div className="h-4 w-2/3 rounded bg-gray-700"></div>
     </div>
   );
 }
