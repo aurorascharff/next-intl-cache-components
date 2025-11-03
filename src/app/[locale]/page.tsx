@@ -1,6 +1,6 @@
 import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
-import {Suspense, use} from 'react';
+import {Suspense} from 'react';
 import {getTranslations} from 'next-intl/server';
 import PageLayout from '@/components/PageLayout';
 
