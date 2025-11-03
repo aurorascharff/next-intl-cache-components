@@ -5,13 +5,14 @@ import {getTranslations} from 'next-intl/server';
 import PageLayout from '@/components/PageLayout';
 
 export default async function IndexPage({params}: PageProps<'/[locale]'>) {
-  const {locale} = await params;
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale as Locale;
 
   // Enable static rendering
-  setRequestLocale(locale as Locale);
+  setRequestLocale(locale);
 
   const t = await getTranslations({
-    locale: locale as Locale,
+    locale: locale,
     namespace: 'IndexPage'
   });
 
@@ -40,12 +41,12 @@ async function DynamicComponent() {
   );
 }
 
-async function CachedComponent({locale}: {locale: string}) {
+async function CachedComponent({locale}: {locale: Locale}) {
   'use cache';
 
   await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate some async operation
   const t = await getTranslations({
-    locale: locale as Locale,
+    locale,
     namespace: 'IndexPage'
   });
 
