@@ -1,6 +1,6 @@
 # cacheComponents Demo with next-intl
 
-A demo showing how to use Next.js 16's `cacheComponents` feature with `next-intl`. This example demonstrates how the static rendering setup with `generateStaticParams()` and `setRequestLocale()` enables component caching by passing locale explicitly as props instead of reading from headers.
+Demo of Next.js 16 `cacheComponents` with `next-intl`. Shows how to enable component caching for internationalized apps by passing locale as props instead of reading from headers.
 
 ## Implementation
 
