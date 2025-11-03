@@ -26,6 +26,7 @@ export default async function IndexPage({params}: PageProps<'/[locale]'>) {
     </PageLayout>
   );
 }
+
 async function DynamicComponent() {
   await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate some async operation
   const t = await getTranslations('IndexPage');
