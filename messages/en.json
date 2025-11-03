@@ -11,7 +11,7 @@
       "content": "This component is rendered dynamically and demonstrates how translations work with dynamic content."
     },
     "cachedComponent": {
-      "title": "Cached Component", 
+      "title": "Cached Component",
       "content": "This component is cached and shows how translations work with static or cached content."
     }
   },
