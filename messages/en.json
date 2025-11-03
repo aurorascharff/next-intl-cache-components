@@ -4,26 +4,26 @@
     "title": "Something went wrong!"
   },
   "IndexPage": {
-    "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes.",
-    "title": "next-intl example",
+    "description": "Demo of Next.js 16 cacheComponents with next-intl. Shows the difference between dynamic and cached components using getTranslations() with the 'use cache' directive.",
+    "title": "cacheComponents Demo with next-intl",
     "dynamicComponent": {
       "title": "Dynamic Component",
-      "content": "This component is rendered dynamically and demonstrates how translations work with dynamic content."
+      "content": "Uses getTranslations() without explicit locale parameter, relying on request context. Cannot be cached due to context dependency."
     },
     "cachedComponent": {
       "title": "Cached Component",
-      "content": "This component is cached and shows how translations work with static or cached content."
+      "content": "Uses 'use cache' directive and receives locale as prop, then calls getTranslations({locale}). Explicit locale parameter makes it cacheable."
     }
   },
   "LocaleLayout": {
-    "title": "next-intl example"
+    "title": "cacheComponents Demo with next-intl"
   },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, de {Deutsch} en {English} other {Unknown}}"
   },
   "Manifest": {
-    "name": "next-intl example"
+    "name": "cacheComponents Demo with next-intl"
   },
   "Navigation": {
     "home": "Home",
@@ -41,9 +41,9 @@
         "title": "Docs"
       },
       "source": {
-        "description": "Browse the source code of this example on GitHub.",
-        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
-        "title": "Source code"
+        "description": "Browse the cacheComponents implementation on GitHub.",
+        "href": "https://github.com/aurorascharff/next-intl-cache-components/blob/main/src/app/%5Blocale%5D/page.tsx",
+        "title": "Implementation"
       }
     }
   },

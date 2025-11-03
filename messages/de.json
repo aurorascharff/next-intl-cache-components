@@ -4,26 +4,26 @@
     "title": "Etwas ist schief gelaufen!"
   },
   "IndexPage": {
-    "description": "Dies ist ein Beispiel, das die Verwendung von <code>next-intl</code> mit dem Next.js App Router demonstriert. Bei Ändern der Sprache rechts oben ändert sich der Inhalt dieser Seite.",
-    "title": "next-intl Beispiel",
+    "description": "Demo von Next.js 16 cacheComponents mit next-intl. Zeigt den Unterschied zwischen dynamischen und gecachten Komponenten mit getTranslations() und der 'use cache' Direktive.",
+    "title": "cacheComponents Demo mit next-intl",
     "dynamicComponent": {
       "title": "Dynamische Komponente",
-      "content": "Diese Komponente wird bei jedem Seitenaufruf neu gerendert und zeigt, wie Übersetzungen mit dynamischen Inhalten funktionieren."
+      "content": "Verwendet getTranslations() ohne expliziten locale Parameter und verlässt sich auf Request-Kontext. Kann aufgrund der Kontext-Abhängigkeit nicht gecacht werden."
     },
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
-      "content": "Diese Komponente wird zwischengespeichert und zeigt, wie Übersetzungen mit statischen Inhalten funktionieren."
+      "content": "Verwendet 'use cache' Direktive und erhält locale als Prop, dann ruft getTranslations({locale}) auf. Expliziter locale Parameter macht es cachebar."
     }
   },
   "LocaleLayout": {
-    "title": "next-intl Beispiel"
+    "title": "cacheComponents Demo mit next-intl"
   },
   "LocaleSwitcher": {
     "label": "Sprache ändern",
     "locale": "{locale, select, de {Deutsch} en {English} other {Unbekannt}}"
   },
   "Manifest": {
-    "name": ""
+    "name": "cacheComponents Demo mit next-intl"
   },
   "Navigation": {
     "home": "Start",
@@ -41,9 +41,9 @@
         "title": "Dokumentation"
       },
       "source": {
-        "description": "Sieh dir den Quellcode dieses Beispiels auf GitHub an.",
-        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
-        "title": "Quellcode"
+        "description": "Sieh dir die cacheComponents Implementierung auf GitHub an.",
+        "href": "https://github.com/aurorascharff/next-intl-cache-components/blob/main/src/app/%5Blocale%5D/page.tsx",
+        "title": "Implementierung"
       }
     }
   },

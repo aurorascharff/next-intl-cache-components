@@ -21,13 +21,7 @@ export default async function IndexPage({params}: PageProps<'/[locale]'>) {
         <DynamicComponent />
       </Suspense>
       <CachedComponent locale={locale} />
-      <p className="max-w-[590px]">
-        {t.rich('description', {
-          code: (chunks) => (
-            <code className="font-mono text-white">{chunks}</code>
-          )
-        })}
-      </p>
+      <p className="max-w-[590px]">{t('description')}</p>
     </PageLayout>
   );
 }
