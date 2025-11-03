@@ -5,7 +5,15 @@
   },
   "IndexPage": {
     "description": "Dies ist ein Beispiel, das die Verwendung von <code>next-intl</code> mit dem Next.js App Router demonstriert. Bei Ändern der Sprache rechts oben ändert sich der Inhalt dieser Seite.",
-    "title": "next-intl Beispiel"
+    "title": "next-intl Beispiel",
+    "dynamicComponent": {
+      "title": "Dynamische Komponente",
+      "content": "Diese Komponente wird bei jedem Seitenaufruf neu gerendert und zeigt, wie Übersetzungen mit dynamischen Inhalten funktionieren."
+    },
+    "cachedComponent": {
+      "title": "Zwischengespeicherte Komponente",
+      "content": "Diese Komponente wird zwischengespeichert und zeigt, wie Übersetzungen mit statischen Inhalten funktionieren."
+    }
   },
   "LocaleLayout": {
     "title": "next-intl Beispiel"

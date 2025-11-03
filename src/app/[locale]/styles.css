@@ -1,3 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-mono: 'Monaco', ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  
+  --color-slate-850: hsl(222deg 47% 16%);
+  --color-primary: #5fc3e7;
+  
+  --container-center: true;
+  --container-sm: 50rem;
+}
