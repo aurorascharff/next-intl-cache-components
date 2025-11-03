@@ -1,4 +1,4 @@
-# cacheComponents Demo with next-intl
+# Next.js 16 cacheComponents with next-intl
 
 Demo of Next.js 16 `cacheComponents` with `next-intl`. Shows how to enable component caching for internationalized apps by passing locale as props instead of reading from headers.
 
