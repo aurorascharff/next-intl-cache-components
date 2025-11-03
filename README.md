@@ -1,11 +1,22 @@
-# example-app-router
+# cacheComponents Demo with next-intl
 
-An example that showcases basic usage of `next-intl` with the App Router, including internationalized routing.
+A demo showing how to use Next.js 16's `cacheComponents` feature with `next-intl`. This example demonstrates how the static rendering setup with `generateStaticParams()` and `setRequestLocale()` enables component caching by passing locale explicitly as props instead of reading from headers.
 
-[Demo](https://next-intl-example-app-router.vercel.app/)
+## Key Features
 
-## Deploy your own
+- **Static Rendering Setup**: Uses `generateStaticParams()` to pre-generate locale routes and `setRequestLocale()` for static rendering
+- **Dynamic vs Cached Components**: Compare components that use `getTranslations()` with and without the `'use cache'` directive
+- **Explicit Locale Passing**: Shows how passing locale as props (from params) enables caching, while relying on headers breaks caching
+- **Next.js 16 cacheComponents**: Demonstrates the new caching capabilities with internationalized content
 
-By deploying to [Vercel](https://vercel.com), you can check out the example in action. Note that you'll be prompted to create a new GitHub repository as part of this, allowing you to make subsequent changes.
+## Implementation
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/amannn/next-intl/tree/main/examples/example-app-router)
+The demo includes two components:
+
+- **Dynamic Component**: Uses `getTranslations()` without explicit locale, relies on `setRequestLocale()` context
+- **Cached Component**: Receives locale from params as prop and uses `getTranslations({locale})` with `'use cache'` directive
+
+## Learn More
+
+- [next-intl Static Rendering Setup](https://next-intl.dev/docs/routing/setup#static-rendering)
+- [next-intl with Actions, Metadata & Route Handlers](https://next-intl.dev/docs/environments/actions-metadata-route-handlers)
