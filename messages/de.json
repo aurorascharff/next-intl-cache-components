@@ -8,7 +8,7 @@
     "title": "cacheComponents Demo mit next-intl",
     "dynamicComponent": {
       "title": "Dynamische Komponente",
-      "content": "Verwendet getTranslations() ohne locale Parameter und verlässt sich auf setRequestLocale() Kontext vom Static Rendering Setup mit generateStaticParams(). Nicht gecacht - wird bei jeder Anfrage ausgeführt."
+      "content": "Verwendet getTranslations('IndexPage') nur mit Namespace Parameter, was intern aus headers() liest. Diese Komponente ist nicht cachebar und wird bei jeder Anfrage ausgeführt."
     },
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
