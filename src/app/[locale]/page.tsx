@@ -1,22 +1,26 @@
-import {Locale, useTranslations} from 'next-intl';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {Locale} from 'next-intl';
+import {setRequestLocale} from 'next-intl/server';
 import {Suspense, use} from 'react';
+import {getTranslations} from 'next-intl/server';
 import PageLayout from '@/components/PageLayout';
 
-export default function IndexPage({params}: PageProps<'/[locale]'>) {
-  const {locale} = use(params);
+export default async function IndexPage({params}: PageProps<'/[locale]'>) {
+  const {locale} = await params;
 
   // Enable static rendering
   setRequestLocale(locale as Locale);
 
-  const t = useTranslations('IndexPage');
+  const t = await getTranslations({
+    locale: locale as Locale,
+    namespace: 'IndexPage'
+  });
 
   return (
     <PageLayout title={t('title')}>
       <Suspense fallback={<p>Loading dynamic component...</p>}>
         <DynamicComponent />
       </Suspense>
-      <CachedComponent />
+      <CachedComponent locale={locale} />
       <p className="max-w-[590px]">
         {t.rich('description', {
           code: (chunks) => (
@@ -42,11 +46,14 @@ async function DynamicComponent() {
   );
 }
 
-async function CachedComponent() {
+async function CachedComponent({locale}: {locale: string}) {
   'use cache';
 
   await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate some async operation
-  const t = await getTranslations('IndexPage');
+  const t = await getTranslations({
+    locale: locale as Locale,
+    namespace: 'IndexPage'
+  });
 
   return (
     <div className="mb-8 rounded-lg bg-gray-800 p-6">
