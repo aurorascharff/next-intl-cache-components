@@ -12,7 +12,7 @@
     },
     "cachedComponent": {
       "title": "Cached Component",
-      "content": "Uses 'use cache' directive and receives locale as prop, then calls getTranslations({locale}). Explicit locale parameter makes it cacheable."
+      "content": "Uses 'use cache' directive and receives locale as prop, then calls getTranslations with explicit locale. Explicit locale parameter makes it cacheable."
     }
   },
   "LocaleLayout": {

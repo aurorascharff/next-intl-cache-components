@@ -12,7 +12,7 @@
     },
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
-      "content": "Verwendet 'use cache' Direktive und erhält locale als Prop, dann ruft getTranslations({locale}) auf. Expliziter locale Parameter macht es cachebar."
+      "content": "Verwendet 'use cache' Direktive und erhält locale als Prop, dann ruft getTranslations mit explizitem locale auf. Expliziter locale Parameter macht es cachebar."
     }
   },
   "LocaleLayout": {
