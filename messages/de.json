@@ -4,15 +4,15 @@
     "title": "Etwas ist schief gelaufen!"
   },
   "IndexPage": {
-    "description": "Demo zeigt, wie next-intl Static Rendering Setup mit setRequestLocale Next.js 16 cacheComponents ermöglicht. Seite verwendet params um locale zu extrahieren und übergibt es explizit an gecachte Komponenten.",
+    "description": "Demo zeigt, wie next-intl Static Rendering Setup mit generateStaticParams() und setRequestLocale() Next.js 16 cacheComponents ermöglicht. Seite extrahiert locale aus params und übergibt es explizit an gecachte Komponenten.",
     "title": "cacheComponents Demo mit next-intl",
     "dynamicComponent": {
       "title": "Dynamische Komponente",
-      "content": "Verwendet getTranslations() ohne locale Parameter und verlässt sich auf setRequestLocale Setup das aus headers() liest. Nicht gecacht - wird bei jeder Anfrage ausgeführt."
+      "content": "Verwendet getTranslations() ohne locale Parameter und verlässt sich auf setRequestLocale() Kontext vom Static Rendering Setup mit generateStaticParams(). Nicht gecacht - wird bei jeder Anfrage ausgeführt."
     },
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
-      "content": "Erhält locale von params als Prop und verwendet getTranslations mit explizitem locale Parameter. Die 'use cache' Direktive funktioniert, weil locale explizit übergeben wird, nicht aus headers() gelesen."
+      "content": "Erhält locale von params (generiert durch generateStaticParams()) als Prop und verwendet getTranslations mit explizitem locale. Funktioniert mit 'use cache', weil locale explizit übergeben wird, nicht aus headers() gelesen."
     }
   },
   "LocaleLayout": {
