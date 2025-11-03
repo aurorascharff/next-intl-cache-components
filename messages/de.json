@@ -4,15 +4,15 @@
     "title": "Etwas ist schief gelaufen!"
   },
   "IndexPage": {
-    "description": "Demo von Next.js 16 cacheComponents mit next-intl. Zeigt den Unterschied zwischen dynamischen und gecachten Komponenten mit getTranslations() und der 'use cache' Direktive.",
+    "description": "Demo zeigt, wie next-intl Static Rendering Setup mit setRequestLocale Next.js 16 cacheComponents ermöglicht. Seite verwendet params um locale zu extrahieren und übergibt es explizit an gecachte Komponenten.",
     "title": "cacheComponents Demo mit next-intl",
     "dynamicComponent": {
       "title": "Dynamische Komponente",
-      "content": "Verwendet getTranslations() ohne expliziten locale Parameter und verlässt sich auf Request-Kontext. Kann aufgrund der Kontext-Abhängigkeit nicht gecacht werden."
+      "content": "Verwendet getTranslations() ohne locale Parameter und verlässt sich auf setRequestLocale Setup das aus headers() liest. Nicht gecacht - wird bei jeder Anfrage ausgeführt."
     },
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
-      "content": "Verwendet 'use cache' Direktive und erhält locale als Prop, dann ruft getTranslations mit explizitem locale auf. Expliziter locale Parameter macht es cachebar."
+      "content": "Erhält locale von params als Prop und verwendet getTranslations mit explizitem locale Parameter. Die 'use cache' Direktive funktioniert, weil locale explizit übergeben wird, nicht aus headers() gelesen."
     }
   },
   "LocaleLayout": {
