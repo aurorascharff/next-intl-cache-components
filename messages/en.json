@@ -5,7 +5,7 @@
   },
   "IndexPage": {
     "description": "Demo showing how next-intl static rendering setup with generateStaticParams() and setRequestLocale() enables Next.js 16 cacheComponents. Page extracts locale from params and passes it explicitly to cached components.",
-    "title": "cacheComponents Demo with next-intl",
+    "title": "cacheComponents with next-intl",
     "dynamicComponent": {
       "title": "Dynamic Component",
       "content": "Uses getTranslations('IndexPage') with only namespace parameter, which internally reads from headers(). This component is not cacheable and runs on every request."
@@ -16,14 +16,14 @@
     }
   },
   "LocaleLayout": {
-    "title": "cacheComponents Demo with next-intl"
+    "title": "cacheComponents with next-intl"
   },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, de {Deutsch} en {English} other {Unknown}}"
   },
   "Manifest": {
-    "name": "cacheComponents Demo with next-intl"
+    "name": "cacheComponents with next-intl"
   },
   "Navigation": {
     "home": "Home",
