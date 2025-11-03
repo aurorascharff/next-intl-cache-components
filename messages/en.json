@@ -5,7 +5,15 @@
   },
   "IndexPage": {
     "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes.",
-    "title": "next-intl example"
+    "title": "next-intl example",
+    "dynamicComponent": {
+      "title": "Dynamic Component",
+      "content": "This component is rendered dynamically and demonstrates how translations work with dynamic content."
+    },
+    "cachedComponent": {
+      "title": "Cached Component", 
+      "content": "This component is cached and shows how translations work with static or cached content."
+    }
   },
   "LocaleLayout": {
     "title": "next-intl example"
