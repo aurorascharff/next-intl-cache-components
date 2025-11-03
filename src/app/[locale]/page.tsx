@@ -3,6 +3,7 @@ import {setRequestLocale} from 'next-intl/server';
 import {Suspense} from 'react';
 import {getTranslations} from 'next-intl/server';
 import PageLayout from '@/components/PageLayout';
+import NavigationLink from '@/components/NavigationLink';
 
 export default async function IndexPage({params}: PageProps<'/[locale]'>) {
   const resolvedParams = await params;
@@ -52,6 +53,7 @@ async function CachedComponent({locale}: {locale: Locale}) {
 
   return (
     <div className="mb-8 rounded-lg bg-gray-800 p-6">
+      <NavigationLink href="/pathnames">{t('link')}</NavigationLink>
       <h2 className="mb-4 text-2xl font-bold text-white">
         {t('cachedComponent.title')}
       </h2>

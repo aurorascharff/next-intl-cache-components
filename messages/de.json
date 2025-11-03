@@ -10,6 +10,7 @@
       "title": "Dynamische Komponente",
       "content": "Verwendet getTranslations('IndexPage') nur mit Namespace Parameter, was intern aus headers() liest. Diese Komponente ist nicht cachebar und wird bei jeder Anfrage ausgeführt."
     },
+    "link": "Go to Pathnames page",
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
       "content": "Erhält locale von params (generiert durch generateStaticParams()) als Prop und verwendet getTranslations mit explizitem locale. Funktioniert mit 'use cache', weil locale explizit übergeben wird, nicht aus headers() gelesen."
