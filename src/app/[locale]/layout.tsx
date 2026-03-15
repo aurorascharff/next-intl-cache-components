@@ -1,5 +1,6 @@
+import {locale as rootLocale} from 'next/root-params';
 import {notFound} from 'next/navigation';
-import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
+import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {clsx} from 'clsx';
 import {Inter} from 'next/font/google';
@@ -13,15 +14,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
 
-export async function generateMetadata(
-  props: Omit<LayoutProps<'/[locale]'>, 'children'>
-) {
-  const {locale} = await props.params;
-
-  const t = await getTranslations({
-    locale: locale as Locale,
-    namespace: 'LocaleLayout'
-  });
+export async function generateMetadata() {
+  const t = await getTranslations('LocaleLayout');
 
   return {
     title: t('title')
@@ -29,16 +23,13 @@ export async function generateMetadata(
 }
 
 export default async function LocaleLayout({
-  children,
-  params
+  children
 }: LayoutProps<'/[locale]'>) {
-  // Ensure that the incoming `locale` is valid
-  const {locale} = await params;
+  const locale = await rootLocale();
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  // Enable static rendering
   setRequestLocale(locale);
 
   return (
