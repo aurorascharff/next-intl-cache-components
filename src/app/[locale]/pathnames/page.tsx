@@ -5,8 +5,7 @@ import {use} from 'react';
 import PageLayout from '@/components/PageLayout';
 
 export default function PathnamesPage() {
-  const locale = use(rootLocale()) as Locale;
-  setRequestLocale(locale);
+  setRequestLocale(use(rootLocale()) as Locale);
 
   const t = useTranslations('PathnamesPage');
 

@@ -40,10 +40,7 @@ async function CachedComponent() {
 
   const locale = (await rootLocale()) as Locale;
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const t = await getTranslations({
-    locale,
-    namespace: 'IndexPage'
-  });
+  const t = await getTranslations({locale, namespace: 'IndexPage'});
 
   return (
     <div className="mb-8 rounded-lg bg-gray-800 p-6">
