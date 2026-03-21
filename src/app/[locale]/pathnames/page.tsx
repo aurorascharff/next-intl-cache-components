@@ -1,15 +1,11 @@
+import {locale as rootLocale} from 'next/root-params';
 import {Locale, useTranslations} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {use} from 'react';
 import PageLayout from '@/components/PageLayout';
 
-export default function PathnamesPage({
-  params
-}: PageProps<'/[locale]/pathnames'>) {
-  const {locale} = use(params);
-
-  // Enable static rendering
-  setRequestLocale(locale as Locale);
+export default function PathnamesPage() {
+  setRequestLocale(use(rootLocale()) as Locale);
 
   const t = useTranslations('PathnamesPage');
 

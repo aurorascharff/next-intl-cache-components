@@ -4,7 +4,7 @@
     "title": "Etwas ist schief gelaufen!"
   },
   "IndexPage": {
-    "description": "Demo zeigt, wie next-intl Static Rendering Setup mit generateStaticParams() und setRequestLocale() Next.js 16 cacheComponents ermöglicht. Seite extrahiert locale aus params und übergibt es explizit an gecachte Komponenten.",
+    "description": "Demo zeigt, wie next/root-params Next.js 16 cacheComponents mit next-intl ermöglicht. Gecachte Komponenten lesen locale direkt aus Root Params innerhalb von 'use cache' — kein Prop-Drilling nötig.",
     "title": "cacheComponents Demo mit next-intl",
     "dynamicComponent": {
       "title": "Dynamische Komponente",
@@ -13,7 +13,7 @@
     "link": "Go to Pathnames page",
     "cachedComponent": {
       "title": "Zwischengespeicherte Komponente",
-      "content": "Erhält locale von params (generiert durch generateStaticParams()) als Prop und verwendet getTranslations mit explizitem locale. Funktioniert mit 'use cache', weil locale explizit übergeben wird, nicht aus headers() gelesen."
+      "content": "Liest locale direkt aus next/root-params innerhalb von 'use cache'. Der Root-Param-Wert wird automatisch zum Cache-Key, sodass jede Sprache ihren eigenen Cache-Eintrag erhält — kein Prop-Drilling nötig."
     }
   },
   "LocaleLayout": {

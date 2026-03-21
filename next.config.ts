@@ -8,6 +8,9 @@ const withNextIntl = createNextIntlPlugin({
 });
 
 const config: NextConfig = {
+  experimental: {
+    rootParams: true
+  },
   cacheComponents: true
 };
 

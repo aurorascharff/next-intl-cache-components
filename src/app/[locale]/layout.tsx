@@ -1,6 +1,11 @@
+import {locale as rootLocale} from 'next/root-params';
 import {notFound} from 'next/navigation';
 import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale
+} from 'next-intl/server';
 import {clsx} from 'clsx';
 import {Inter} from 'next/font/google';
 import {routing} from '@/i18n/routing';
@@ -13,15 +18,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
 
-export async function generateMetadata(
-  props: Omit<LayoutProps<'/[locale]'>, 'children'>
-) {
-  const {locale} = await props.params;
-
-  const t = await getTranslations({
-    locale: locale as Locale,
-    namespace: 'LocaleLayout'
-  });
+export async function generateMetadata() {
+  const locale = (await rootLocale()) as Locale;
+  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
 
   return {
     title: t('title')
@@ -29,22 +28,22 @@ export async function generateMetadata(
 }
 
 export default async function LocaleLayout({
-  children,
-  params
-}: LayoutProps<'/[locale]'>) {
-  // Ensure that the incoming `locale` is valid
-  const {locale} = await params;
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  const locale = await rootLocale();
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  // Enable static rendering
   setRequestLocale(locale);
+  const messages = await getMessages({locale});
 
   return (
     <html className="h-full" lang={locale}>
       <body className={clsx(inter.className, 'flex h-full flex-col')}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation />
           {children}
         </NextIntlClientProvider>
