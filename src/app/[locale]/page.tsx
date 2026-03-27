@@ -1,13 +1,9 @@
-import {locale as rootLocale} from 'next/root-params';
-import {Locale} from 'next-intl';
 import {Suspense} from 'react';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 import PageLayout from '@/components/PageLayout';
 import NavigationLink from '@/components/NavigationLink';
 
 export default async function IndexPage() {
-  setRequestLocale((await rootLocale()) as Locale);
-
   const t = await getTranslations('IndexPage');
 
   return (
@@ -38,9 +34,8 @@ async function DynamicComponent() {
 async function CachedComponent() {
   'use cache';
 
-  const locale = (await rootLocale()) as Locale;
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const t = await getTranslations({locale, namespace: 'IndexPage'});
+  const t = await getTranslations('IndexPage');
 
   return (
     <div className="mb-8 rounded-lg bg-gray-800 p-6">
