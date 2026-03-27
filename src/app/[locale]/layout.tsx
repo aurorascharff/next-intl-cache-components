@@ -1,10 +1,7 @@
-import {locale as rootLocale} from 'next/root-params';
-import {notFound} from 'next/navigation';
-import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
+import {NextIntlClientProvider} from 'next-intl';
 import {
-  getMessages,
+  getLocale,
   getTranslations,
-  setRequestLocale
 } from 'next-intl/server';
 import {clsx} from 'clsx';
 import {Inter} from 'next/font/google';
@@ -19,8 +16,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata() {
-  const locale = (await rootLocale()) as Locale;
-  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
+  const t = await getTranslations('LocaleLayout');
 
   return {
     title: t('title')
@@ -32,18 +28,12 @@ export default async function LocaleLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const locale = await rootLocale();
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-  const messages = await getMessages({locale});
+  const locale = await getLocale();
 
   return (
     <html className="h-full" lang={locale}>
       <body className={clsx(inter.className, 'flex h-full flex-col')}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider>
           <Navigation />
           {children}
         </NextIntlClientProvider>
